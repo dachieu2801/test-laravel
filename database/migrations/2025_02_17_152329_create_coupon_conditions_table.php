@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('coupon_conditions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('coupon_id')->constrained('coupons');
-            $table->enum('condition_type', ['category', 'membership']);
+            $table->enum('condition_type', ['category', 'membership', 'product']);
             $table->string('condition_value', 100);
             $table->timestamps();
         });

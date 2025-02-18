@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('phone', 100);
             $table->string('address', 100);
-            $table->foreignId('user_id')->nullable()->constrained('users');
+            $table->foreignId('user_id')->constrained('users');
             $table->string('user_type', 100);
             $table->decimal('total_amount', 16, 2);
             $table->decimal('total', 16, 2);

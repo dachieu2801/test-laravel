@@ -15,11 +15,12 @@ return new class extends Migration
             $table->id();
             $table->foreignId('order_id')->constrained('orders');
             $table->foreignId('product_id')->constrained('products');
-            $table->decimal('unit_price', 16, 2);
-            $table->integer('quantity');
-            $table->decimal('price', 16, 2);
-            $table->decimal('final_price', 16, 2);
             $table->foreignId('coupon_id')->nullable()->constrained('coupons');
+            $table->integer('quantity');
+            $table->decimal('price', 10, 2);
+            $table->decimal('unit_price', 10, 2);
+            $table->decimal('discount', 10, 2)->nullable();
+            $table->decimal('final_price', 10, 2);
             $table->timestamps();
         });
     }

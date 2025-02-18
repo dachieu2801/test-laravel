@@ -2,9 +2,26 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class OrderItem extends Model
 {
-    protected $fillable = ['order_id', 'product_id', 'unit_price', 'quantity', 'price', 'final_price', 'coupon_id'];
+    use HasFactory;
+
+    protected $fillable = [
+        'order_id', 'product_id', 'quantity', 'unit_price', 'price', 'final_price', 'discount', 'coupon_id'
+    ];
+
+    // Quan hệ với Product
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
+
+    // Quan hệ với Coupon (Khuyến mãi)
+    public function coupon()
+    {
+        return $this->belongsTo(Coupon::class);
+    }
 }
